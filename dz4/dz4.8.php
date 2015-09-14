@@ -24,10 +24,11 @@
     </html>
 <?php
 
-$text = $_POST['text'];
-if (empty($text)) {
+
+if (empty($_POST['text'])) {
     echo "Введите дату";
 } else {
+    $text = $_POST['text'];
     echo "Вы ввели: " . $text;
 }
 

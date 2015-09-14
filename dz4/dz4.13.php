@@ -1,6 +1,6 @@
 </head>
 <body>
-<form method="GET" action="dz4.13.php">
+<form method="post" action="dz4.13.php">
     <label>Введите дату в формате YY-mm-dd:</label>
     <input type="text" name="text">
     <br/><br/>
@@ -29,35 +29,35 @@ $horoscope = [
         "Around you are many people who interact with you, invite you for a coffee, chatting ...",
         "For the people of this sign, the first half of the day, promises to bring difficulties in the professional and family relationships."
     ],
-    "TWINS"    => [
+    "twins"    => [
         "It is an unfavorable day, today is Gemini.",
         "Adopted this day solutions will open up new prospects!"
     ],
-    "CANCER"   => [
+    "cancer"   => [
         "Этот день принесет Ракам трудности и разного рода хлопоты.",
         "Сегодня вы будете пребывать во власти паники и неразберихи."
     ],
-    "Лев"      => [
+    "Lion"      => [
         ".Благоприятный день будет сегодня у людей этого знака.",
         "Планеты по отношению к этому знаку, будут настроены благоприятно."
     ],
-    "Дева"     => [
+    "virgin"     => [
         "время отдыха и релакса.",
         "Для Дев сегодня как никогда удачны знакомства, особенно романтические."
     ],
-    "Весы"     => [
+    "Libra"     => [
         "Твои желаниям время исполняться! ",
         "Ты сегодня будешь счастлив! "
     ],
-    "Скорпион" => [
+    "Scorpio" => [
         "Наконец-то звёзды улыбнуться этому знаку зодиака.",
         "Благоприятный день. "
     ],
-    "Стрелец"  => [
+    "Sagittarius"  => [
         "Наконец-то звёзды улыбнуться этому знаку зодиака.",
         "В этот день будьте внимательны к детям. Ваша забота им необходима."
     ],
-    "Козерог"  => [
+    "Capricorn"  => [
         "Проблемы личного плана целиком и полностью лягут на ваши плечи",
         "Людям этого знака, сегодня придётся решать бытовые проблемы, которые накопился в последнее время."
     ],
@@ -65,7 +65,7 @@ $horoscope = [
         "This day promises to bring the negative trends. ",
         "People of this sign, now awaits the realization of their dreams. "
     ],
-    "Рыбы"     => [
+    "Fish"     => [
         "Сегодня вы будете пребывать во власти паники и неразберихи.",
         "Есть люди в душе которых живёт солнце. "
     ]
@@ -80,16 +80,64 @@ $horoscope = [
 о б р а з о м .
 */
 //YY-mm-dd
-if (empty($_GET['text'])) {
+if (empty($_POST['text'])) {
     echo "Введите дату";
 } else {
-    $data = $_GET['text'];
-    //echo $data. "<br />";
+    $data = $_POST['text'];
+    // echo $data . "<br />";
     $ex = explode("-", $data);
     //print_r($ex);
-    if (($ex[2] <= 20 && $ex[1] >= 1) || ($ex[2] >= 18 && $ex[1] <= 2)) {
-        //$vod = array_rand($horoscope,1);
-        echo "Водолей" . "<br />";
+    $date1 = date('Y-m-d', mktime(0, 0, 0, 1, 20, $ex[0]));
+    $date2 = date('Y-m-d', mktime(0, 0, 0, 2, 18, $ex[0]));
+
+    if (($data >= $date1) && ($data <= $date2)) {
+        $a =$horoscope[array_rand($horoscope)];
+
+        echo "Водолей". $horoscope['ram'][$a];
+    } elseif (($data >= date('Y-m-d', mktime(0, 0, 0, 2, 21, $ex[0])))
+        && ($data <= date('Y-m-d', mktime(0, 0, 0, 3, 20, $ex[0])))
+    ) {
+        echo "Рыба";
+    } elseif (($data >= date('Y-m-d', mktime(0, 0, 0, 3, 21, $ex[0])))
+        && ($data <= date('Y-m-d', mktime(0, 0, 0, 4, 20, $ex[0])))
+    ) {
+        echo "Овен";
+    }elseif (($data >= date('Y-m-d', mktime(0, 0, 0, 4, 21, $ex[0])))
+        && ($data <= date('Y-m-d', mktime(0, 0, 0, 5, 20, $ex[0])))
+    ) {
+        echo "Телец";
+    }elseif (($data >= date('Y-m-d', mktime(0, 0, 0, 5, 21, $ex[0])))
+        && ($data <= date('Y-m-d', mktime(0, 0, 0, 6, 21, $ex[0])))
+    ) {
+        echo "Близнецы";
+    }elseif (($data >= date('Y-m-d', mktime(0, 0, 0, 6, 22, $ex[0])))
+        && ($data <= date('Y-m-d', mktime(0, 0, 0, 7, 22, $ex[0])))
+    ) {
+        echo "Рак";
+    }elseif (($data >= date('Y-m-d', mktime(0, 0, 0, 7, 23, $ex[0])))
+        && ($data <= date('Y-m-d', mktime(0, 0, 0, 8, 23, $ex[0])))
+    ) {
+        echo "Лев";
+    }elseif (($data >= date('Y-m-d', mktime(0, 0, 0, 8, 24, $ex[0])))
+        && ($data <= date('Y-m-d', mktime(0, 0, 0, 9, 23, $ex[0])))
+    ) {
+        echo "Дева";
+    }elseif (($data >= date('Y-m-d', mktime(0, 0, 0, 9, 24, $ex[0])))
+        && ($data <= date('Y-m-d', mktime(0, 0, 0, 10, 23, $ex[0])))
+    ) {
+        echo "Весы";
+    }elseif (($data >= date('Y-m-d', mktime(0, 0, 0, 10, 24, $ex[0])))
+        && ($data <= date('Y-m-d', mktime(0, 0, 0, 11, 22, $ex[0])))
+    ) {
+        echo "Скорпион";
+    }elseif (($data >= date('Y-m-d', mktime(0, 0, 0, 11, 23, $ex[0])))
+        && ($data <= date('Y-m-d', mktime(0, 0, 0, 12, 21, $ex[0])))
+    ) {
+        echo "Стрелец";
+    }elseif (($data >= date('Y-m-d', mktime(0, 0, 0, 12, 22, $ex[0])))
+        && ($data <= date('Y-m-d', mktime(0, 0, 0, 01, 20, $ex[0])))
+    ) {
+        echo "Козерог";
     }
 }
 
