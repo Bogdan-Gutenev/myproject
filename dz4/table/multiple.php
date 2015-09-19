@@ -24,6 +24,7 @@ $text2 = (int) $_POST['text2'];
 $text3 =  $_POST['text3'];
 $col = "color:" . $text3;
 echo $col;
+    //
 ?>
 <table  border="2">
     <?php

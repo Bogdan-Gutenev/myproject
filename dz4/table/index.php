@@ -4,4 +4,5 @@ if (empty($_COOKIE['coo_name']) && empty($_COOKIE['coo_email'])){
 }else{
     include 'index.php';
 }
+//
 ?>

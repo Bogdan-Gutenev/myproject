@@ -24,6 +24,7 @@
 </heat>
 </html>
 <?php
+//
 if(empty($_POST['text1']) && empty($_POST['text2'])){
     echo "Введите два числа";
 }else{

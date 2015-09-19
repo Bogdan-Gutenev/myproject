@@ -6,6 +6,7 @@ $conclusion
     . '<input type="submit" name="logout" value="Выйти">' . '</form>';
 echo $conclusion;
 }*/
+//
 
     setcookie("id");
     setcookie("em");

@@ -8,6 +8,7 @@ if ((empty($_POST['name']))&&(empty($_POST['email']))){
     setcookie('coo_email', $email, time());
     setcookie('date', date('Y:m:d; h:i:s'));
     header("Location:site.php");
+//
 }
 /*
 if (!empty($_POST['name']) && !empty($_POST['email'])){

@@ -1,5 +1,5 @@
 <?php
-
+//
 $date=$_COOKIE['date'];
 $n=$_COOKIE['coo_name'];
 //echo $n;
