@@ -29,11 +29,11 @@ echo $col;
     <?php
     for ($i = 1; $i <= $text1; $i++) {
         ?>
-        <tr>
+        <tr align="center">
             <?php
             for ($j = 1; $j <= $text2; $j++) {
                 ?>
-                <td style="<?php echo $col;?> "><?php echo "$i * $j = " . $i * $j; ?></td>
+                <td style="<?php echo $col;?> "><?php echo ($i * $j); ?></td>
             <?php
             }
             ?>

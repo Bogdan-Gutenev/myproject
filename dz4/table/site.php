@@ -1,5 +1,12 @@
 <?php
-include 'logout.php';
+
+$date=$_COOKIE['date'];
+$n=$_COOKIE['coo_name'];
+//echo $n;
+$log = '<form action="/myproject/dz4/table/logout.php" method="post">
+  Привет, '.$n.'! Дата авторизации: '.$date.
+    '  <input type="submit" value="Logout"></form>';
+echo $log;
 ?>
 <table border="1" width="100%">
     <?php

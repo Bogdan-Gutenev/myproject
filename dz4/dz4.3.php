@@ -26,7 +26,7 @@ $text = $_POST['text'];
 if (empty($text)) {
     echo "Введите дату";
 } else {
-    echo "Вы ввели: " . $text;
+    echo "Вы ввели----: " . $text;
 }
 if (!empty($text)) {
     $ex = explode(".", $text);
